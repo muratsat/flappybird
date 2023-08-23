@@ -12,10 +12,15 @@ public class BirdScript : MonoBehaviour
     {
     }
 
+    private bool IsJumping() {
+        // handle spacebar and mouse click or touch
+        return Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.touchCount > 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true)
+        if (IsJumping())
         {
 
             rigidbody.velocity = Vector2.up * jumpStrength;
